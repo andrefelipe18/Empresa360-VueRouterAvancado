@@ -13,8 +13,9 @@ const routes = [
     component: HomeComponent, //O componente que será renderizado
     children: [ //As rotas filhas
     {path: 'vendas', component: () => import('@/components/vendas/VendasComponent.vue'), 
-      children:[
+      children:[//As rotas filhas de vendas
         {path: 'leads', component: () => import('@/components/vendas/LeadsComponent.vue')},
+        {path: 'leads/:id', component: () => import('@/components/vendas/LeadComponent.vue')}, //Rota dinamica para visualizar o lead
         {path: 'contratos', component: () => import('@/components/vendas/ContratosComponent.vue')},
         
       ]
