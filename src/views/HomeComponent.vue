@@ -2,11 +2,11 @@
   <div>
       <nav class="navbar navbar-light bg-light menu-superior">
           <div class="container">
-              <router-link class="navbar-brand" to="/">Empresa 360</router-link>
+              <router-link class="navbar-brand" to="/home">Empresa 360 / Home</router-link>
               <div class="navbar-nav">
                   <ul class="navbar-nav">
                       <li class="nav-item">
-                          <a class="nav-link" href="#">Sair</a>
+                          <router-link class="nav-link" to="/">Sair</router-link>
                       </li>
                   </ul>
               </div>
