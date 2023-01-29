@@ -1,24 +1,35 @@
-# empresa360
+# empresa360 - Vue Router
 
-## Project setup
+## Setup do projeto
+
+### Instalação de dependências
+
 ```
 npm install
 ```
+### Compilação e hot-reloads para desenvolvimento
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
+### Compilação e minificação para produção
 
-### Compiles and minifies for production
 ```
 npm run build
 ```
+### Lints e correções de arquivos
 
-### Lints and fixes files
 ```
 npm run lint
 ```
+### Personalize a configuração
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Veja [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Configuração do Vue Router
+
+Arquivo: 
+    
+    ```
+    src/router/index.js
+    ```

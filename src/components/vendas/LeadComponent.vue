@@ -20,6 +20,9 @@
             </div>
         </div>
         
+        <div class="col-auto">
+            <button type="button" class="btn btn-warning" @click="$router.push({name: 'Leads'})">Voltar</button>
+        </div>
     </div>
 </template>
 <script>

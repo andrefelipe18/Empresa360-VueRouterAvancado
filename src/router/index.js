@@ -14,13 +14,13 @@ const routes = [
     children: [ //As rotas filhas
     {path: 'vendas', component: () => import('@/components/vendas/VendasComponent.vue'), 
       children:[//As rotas filhas de vendas
-        {path: 'leads', component: () => import('@/components/vendas/LeadsComponent.vue')},
-        {path: 'leads/:id', component: () => import('@/components/vendas/LeadComponent.vue')}, //Rota dinamica para visualizar o lead
-        {path: 'contratos', component: () => import('@/components/vendas/ContratosComponent.vue')},
-        
+        {path: 'leads', name: 'Leads', component: () => import('@/components/vendas/LeadsComponent.vue')},
+        {path: 'leads/:id', name: 'Lead', component: () => import('@/components/vendas/LeadComponent.vue')}, //Rota dinamica para visualizar o lead
+        {path: 'contratos', name: 'Contratos', component: () => import('@/components/vendas/ContratosComponent.vue')},
+        {path: '', component: () => import('@/components/vendas/VendasPadrao.vue')}
       ]
     },
-      {path: 'servicos', component: () => import('@/components/servicos/ServicosComponent.vue')},
+      {path: 'servicos', name: 'Servicos' ,component: () => import('@/components/servicos/ServicosComponent.vue')},
       {path: 'dashboard', component: () => import('@/components/dashboard/DashboardComponent.vue')},
     ]
   },

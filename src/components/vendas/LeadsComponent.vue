@@ -14,7 +14,8 @@
                 <td>{{ dado.nome }}</td>
                 <td>{{ dado.telefone }}</td>
                 <td>
-                    <router-link :to="`/home/vendas/leads/${dado.id}`" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link>
+                    <!-- <router-link :to="`/home/vendas/leads/${dado.id}`" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link> -->
+                    <router-link :to="{name: 'Lead', params: {id: dado.id}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link>
                 </td>
             </tr>
         </tbody>
