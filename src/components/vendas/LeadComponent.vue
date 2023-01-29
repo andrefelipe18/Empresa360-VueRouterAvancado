@@ -29,8 +29,20 @@
 import ApiMixin from '@/mixins/ApiMixin'
 export default {
    mixins: [ApiMixin],
+   props: [
+        'id', 'outroParametro'
+   ],
    created(){
-      this.getDadosApi(`http://localhost:3000/leads/${this.$route.params.id}`); 
+      //Faz a chamada para a API com o ID props passado como parâmetro  
+      this.getDadosApi(`http://localhost:3000/leads/${this.id}`); 
+   },
+   beforeRouteLeave(){
+        const confirmar = window.confirm('Deseja realmente sair?');
+        if(confirmar){
+            return true;
+        }else{
+            return false;
+        }
    }
 }
 </script>

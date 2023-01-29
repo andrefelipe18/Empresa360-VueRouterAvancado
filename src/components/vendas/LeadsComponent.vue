@@ -15,7 +15,7 @@
                 <td>{{ dado.telefone }}</td>
                 <td>
                     <!-- <router-link :to="`/home/vendas/leads/${dado.id}`" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link> -->
-                    <router-link :to="{name: 'Lead', params: {id: dado.id}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link>
+                    <router-link :to="{name: 'Lead', params: {id: dado.id, outroParametro: `teste_${dado.id}`}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square point"></i></router-link>
                 </td>
             </tr>
         </tbody>
@@ -28,7 +28,13 @@ export default{
     mixins: [ApiMixin],
     created(){
         this.getDadosApi('http://localhost:3000/leads');
-    }
+    },
+    beforeRouteEnter(){
+       console.log('Guarda de componente antes de entrar')
+    },
+    beforeRouteLeave(){
+        console.log('Guarda de componente antes de sair')
+    },
 }
 </script>
 <style scoped>

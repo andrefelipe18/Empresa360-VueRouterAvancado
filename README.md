@@ -33,3 +33,4 @@ Arquivo:
     ```
     src/router/index.js
     ```
+## Necessario o JSON Server para simular uma API FAKE
