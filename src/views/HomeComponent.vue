@@ -36,6 +36,9 @@
 
           </div>
       </div>
+      <div class="rodape">
+         <router-view name="rodape"></router-view>
+      </div>
   </div>
 </template>
 <style scoped>
@@ -61,5 +64,14 @@
     color: #fff;
     background-color: #65a1fa;
     border-color: #65a1fa;
+}
+.rodape{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border-top: solid 1px #ccc;
 }
 </style>
