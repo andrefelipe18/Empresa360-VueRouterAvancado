@@ -5,7 +5,7 @@ import HomeComponent from '../views/HomeComponent.vue'
 const routes = [
   {
     path: '/',
-    component: () => import('../views/SiteComponent.vue'),
+    component: () => import('@/views/SiteComponent.vue'),
     meta: {requerAutorizacao: false},
   }, 
   {
@@ -17,12 +17,12 @@ const routes = [
     children: [ //As rotas filhas
     {
       path: 'vendas', 
-      component: () => import('@/components/vendas/VendasComponent.vue'), 
+      component: () => import(/* webpackChunkName: "vendas" */'@/components/vendas/VendasComponent.vue'), 
       children:[//As rotas filhas de vendas
         {
           path: 'leads', 
           name: 'Leads', 
-          component: () => import('@/components/vendas/LeadsComponent.vue'),
+          component: () => import(/* webpackChunkName: "vendas" */'@/components/vendas/LeadsComponent.vue'),
         },
         {
           path: 'leads/:id/:outroParametro', 
@@ -34,16 +34,17 @@ const routes = [
           }, 
           name: 'Lead', 
           alias: ['/l/:id/:outroParametro', '/pessoa/:id/:outroParametro'],
-          component: () => import('@/components/vendas/LeadComponent.vue')
+          component: () => import(/* webpackChunkName: "vendas" */'@/components/vendas/LeadComponent.vue')
         }, //Rota dinamica para visualizar o lead
         {
           path: 'contratos', 
           name: 'Contratos', 
-          component: () => import('@/components/vendas/ContratosComponent.vue')
+          //fazendo lazy loading
+          component: () => import(/* webpackChunkName: "vendas" */'@/components/vendas/ContratosComponent.vue')
         },
         {
           path: '', 
-          component: () => import('@/components/vendas/VendasPadrao.vue')
+          component: () => import(/* webpackChunkName: "vendas" */'@/components/vendas/VendasPadrao.vue')
         }
       ]
     },
@@ -90,6 +91,17 @@ const routes = [
 const router = createRouter(
   {
     history: createWebHistory(), //O tipo de histórico que será utilizado e serve para definir a URL que será exibida no navegador
+    scrollBehavior(to, savedPosition) {
+
+      if(to.hash){
+        return {el: to.hash} //to.hash deve ser o id do elemento que será exibido
+        //fragmento = #secao_1 => id = secao_1
+      }
+      if(savedPosition){
+        return savedPosition
+      }
+      return {left: 0, top: 0} //left = x, top = y
+    },
     routes //As rotas da aplicação  
   }
 )
